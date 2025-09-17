@@ -2,6 +2,7 @@ package Desafio_Vaga_Jacto_API.demo.repository;
 
 import Desafio_Vaga_Jacto_API.demo.model.Carro;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -15,6 +16,7 @@ import java.sql.Statement;
 import java.util.List;
 
 @Repository
+@Profile({"sqlserver", "dev"})
 public class CarroRepository {
 
     @Autowired
