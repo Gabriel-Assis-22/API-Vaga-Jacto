@@ -1,6 +1,7 @@
-package Desafio_Vaga_Jacto_API.demo.relacional.repository;
+package Desafio_Vaga_Jacto_API.relacional.repository;
 
-import Desafio_Vaga_Jacto_API.demo.relacional.model.Carro;
+
+import Desafio_Vaga_Jacto_API.relacional.model.Carro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;

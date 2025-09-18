@@ -1,4 +1,4 @@
-package Desafio_Vaga_Jacto_API.demo.relacional.model;
+package Desafio_Vaga_Jacto_API.relacional.model;
 
 public class Carro {
     private Long id;
