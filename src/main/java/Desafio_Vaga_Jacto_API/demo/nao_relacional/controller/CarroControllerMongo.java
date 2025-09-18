@@ -1,7 +1,7 @@
-package Desafio_Vaga_Jacto_API.nao_relacional.controller;
+package Desafio_Vaga_Jacto_API.demo.nao_relacional.controller;
 
-import Desafio_Vaga_Jacto_API.nao_relacional.model.Carro;
-import Desafio_Vaga_Jacto_API.nao_relacional.repository.CarroRepositoryMongo;
+import Desafio_Vaga_Jacto_API.demo.nao_relacional.model.CarroNaoRelacional;
+import Desafio_Vaga_Jacto_API.demo.nao_relacional.repository.CarroRepositoryMongo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
@@ -22,29 +22,29 @@ public class CarroControllerMongo {
     }
 
     @GetMapping
-    public List<Carro> listarTodos() {
+    public List<CarroNaoRelacional> listarTodos() {
         return repository.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Carro> buscarPorId(@PathVariable String id) {
+    public ResponseEntity<CarroNaoRelacional> buscarPorId(@PathVariable String id) {
         return repository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Carro salvar(@RequestBody Carro carro) {
+    public CarroNaoRelacional salvar(@RequestBody CarroNaoRelacional carro) {
         carro.setId(null);
         return repository.save(carro);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Carro> atualizar(@PathVariable String id, @RequestBody Carro carro) {
+    public ResponseEntity<CarroNaoRelacional> atualizar(@PathVariable String id, @RequestBody CarroNaoRelacional carro) {
         return repository.findById(id)
                 .map(carroExistente -> {
                     carro.setId(carroExistente.getId()); // Preserva o ID original
-                    Carro carroAtualizado = repository.save(carro);
+                    CarroNaoRelacional carroAtualizado = repository.save(carro);
                     return ResponseEntity.ok(carroAtualizado);
                 })
                 .orElse(ResponseEntity.notFound().build());

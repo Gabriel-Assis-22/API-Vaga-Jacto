@@ -1,4 +1,4 @@
-package Desafio_Vaga_Jacto_API.nao_relacional;
+package Desafio_Vaga_Jacto_API.demo.relacional;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

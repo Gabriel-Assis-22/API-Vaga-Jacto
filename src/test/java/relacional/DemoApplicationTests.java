@@ -1,4 +1,4 @@
-package Desafio_Vaga_Jacto_API.relacional;
+package relacional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
