@@ -1,6 +1,1 @@
-CREATE TABLE IF NOT EXISTS Carro (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    marca VARCHAR(255) NOT NULL,
-    ano INT NOT NULL,
-    disponivel BOOLEAN NOT NULL
-);
+INSERT INTO Carro (marca, ano, disponivel) VALUES ('Ford Ka', 2020, 1);

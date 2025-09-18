@@ -1,6 +1,6 @@
-package Desafio_Vaga_Jacto_API.demo.repository;
+package Desafio_Vaga_Jacto_API.relacional.repository;
 
-import Desafio_Vaga_Jacto_API.demo.model.Carro;
+import Desafio_Vaga_Jacto_API.relacional.model.Carro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,7 +22,6 @@ public class CarroRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    // Método para listar todos os carros (GET)
     public List<Carro> listar() {
         String sql = "SELECT id, marca, ano, disponivel FROM Carro";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
@@ -35,7 +34,6 @@ public class CarroRepository {
         });
     }
 
-    // Método para buscar um carro por ID (GET)
     public Carro buscarPorId(Long id) {
         String sql = "SELECT id, marca, ano, disponivel FROM Carro WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{id}, (rs, rowNum) -> {
@@ -48,7 +46,6 @@ public class CarroRepository {
         });
     }
 
-    // Método para salvar um novo carro (POST)
     public Carro salvar(Carro carro) {
         final String sql = "INSERT INTO Carro (marca, ano, disponivel) VALUES (?, ?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -71,7 +68,6 @@ public class CarroRepository {
         return carro;
     }
 
-    // Método para atualizar um carro (PUT)
     public Carro atualizar(Long id, Carro carro) {
         String sql = "UPDATE Carro SET marca = ?, ano = ?, disponivel = ? WHERE id = ?";
         jdbcTemplate.update(sql, carro.getMarca(), carro.getAno(), carro.isDisponivel(), id);
@@ -79,7 +75,6 @@ public class CarroRepository {
         return carro;
     }
 
-    // Método para deletar um carro (DELETE)
     public void deletar(Long id) {
         String sql = "DELETE FROM Carro WHERE id = ?";
         jdbcTemplate.update(sql, id);

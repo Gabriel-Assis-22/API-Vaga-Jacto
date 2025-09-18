@@ -1,18 +1,23 @@
-package Desafio_Vaga_Jacto_API.demo.model;
+package Desafio_Vaga_Jacto_API.nao_relacional.model; // Pacote corrigido
 
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document; // Import correto
+
+@Document(collection = "carros")
 public class Carro {
-    private Long id;
+    @Id
+    private String id;
+
     private String marca;
     private int ano;
     private boolean disponivel;
 
-    public Carro(){}
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

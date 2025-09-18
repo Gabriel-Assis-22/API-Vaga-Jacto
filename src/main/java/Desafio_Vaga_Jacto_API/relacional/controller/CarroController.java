@@ -1,7 +1,7 @@
-package Desafio_Vaga_Jacto_API.demo.controller;
+package Desafio_Vaga_Jacto_API.relacional.controller;
 
-import Desafio_Vaga_Jacto_API.demo.model.Carro;
-import Desafio_Vaga_Jacto_API.demo.repository.CarroRepository;
+import Desafio_Vaga_Jacto_API.relacional.model.Carro;
+import Desafio_Vaga_Jacto_API.relacional.repository.CarroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
