@@ -1,7 +1,7 @@
-package Desafio_Vaga_Jacto_API.nao_relacional.model; // Pacote corrigido
+package Desafio_Vaga_Jacto_API.nao_relacional.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document; // Import correto
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "carros")
 public class CarroNaoRelacional {

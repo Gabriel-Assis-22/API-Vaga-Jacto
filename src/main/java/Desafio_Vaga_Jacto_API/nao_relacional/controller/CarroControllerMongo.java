@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/carros") // Mesmo endpoint, sem problemas!
-@Profile("mongodb") // SÓ ATIVA ESTE CONTROLLER NO PERFIL 'mongodb'
+@RequestMapping("/carros")
+@Profile("mongodb")
 public class CarroControllerMongo {
 
     private final CarroRepositoryMongo repository;
@@ -43,7 +43,7 @@ public class CarroControllerMongo {
     public ResponseEntity<CarroNaoRelacional> atualizar(@PathVariable String id, @RequestBody CarroNaoRelacional carro) {
         return repository.findById(id)
                 .map(carroExistente -> {
-                    carro.setId(carroExistente.getId()); // Preserva o ID original
+                    carro.setId(carroExistente.getId());
                     CarroNaoRelacional carroAtualizado = repository.save(carro);
                     return ResponseEntity.ok(carroAtualizado);
                 })
@@ -53,9 +53,9 @@ public class CarroControllerMongo {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable String id) {
         if (!repository.existsById(id)) {
-            return ResponseEntity.notFound().build(); // Retorna 404 se o carro não existe
+            return ResponseEntity.notFound().build();
         }
         repository.deleteById(id);
-        return ResponseEntity.noContent().build(); // Retorna 204 No Content (sucesso sem corpo)
+        return ResponseEntity.noContent().build();
     }
 }
