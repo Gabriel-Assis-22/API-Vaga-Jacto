@@ -69,39 +69,6 @@ public class CarroRepository {
         return carro;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public Carro atualizar(Long id, Carro carro) {
         String sql = "UPDATE Carro SET marca = ?, ano = ?, disponivel = ? WHERE id = ?";
         jdbcTemplate.update(sql, carro.getMarca(), carro.getAno(), carro.isDisponivel(), id);
